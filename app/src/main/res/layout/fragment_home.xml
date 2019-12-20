@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg"
-    android:orientation="vertical">
-    <!--首页轮播图-->
-    <ming.com.slideshow_lib.SlideShow
-        android:id="@+id/home_slide"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#ffffff" />
+    android:background="@color/app_bg">
 
-    <!--桌面菜单按钮区域-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv_menu"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#fffffff"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--首页轮播图-->
+        <ming.com.slideshow_lib.SlideShow
+            android:id="@+id/home_slide"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#ffffff" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:textSize="26sp"
-        android:text="热销产品"/>
-</LinearLayout>
+
+        <!--桌面菜单按钮区域-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#ffffff" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="热销产品"
+            android:textSize="26sp" />
+
+
+        <!--桌面热销产品区域-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#ffffff" />
+    </LinearLayout>
+</ScrollView>
+

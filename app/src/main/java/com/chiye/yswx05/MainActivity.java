@@ -10,6 +10,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+
+        try {
+            setTitle(new String(BuildConfig.comanyName.getBytes(),"GBK"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

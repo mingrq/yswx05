@@ -14,13 +14,28 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("int", "ServerIp", "\"${ServerIp}\"")
+            buildConfigField("String", "ServerIp", "${ServerIp}")
+            buildConfigField("String", "fourphone", "${fourphone}")
+            buildConfigField("String", "telephone", "${telephone}")
+            buildConfigField("String", "fax", "${fax}")
+            buildConfigField("String", "website", "${website}")
+            buildConfigField("String", "location", "${location}")
+            buildConfigField("String", "email", "${email}")
+            buildConfigField("String", "qq", "${qq}")
+            buildConfigField("String", "comanyName", "${comanyName}")
         }
         debug {
-            buildConfigField("String", "ServerIp", "\"${ServerIp}\"")
+            buildConfigField("String", "ServerIp", "${ServerIp}")
+            buildConfigField("String", "fourphone", "${fourphone}")
+            buildConfigField("String", "telephone", "${telephone}")
+            buildConfigField("String", "fax", "${fax}")
+            buildConfigField("String", "website", "${website}")
+            buildConfigField("String", "location", "${location}")
+            buildConfigField("String", "email", "${email}")
+            buildConfigField("String", "qq", "${qq}")
+            buildConfigField("String", "comanyName", "${comanyName}")
         }
     }
-
 }
 
 dependencies {
