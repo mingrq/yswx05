@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defultcolor">#707070</color><!--默认颜色-->
+    <color name="colorPrimary">#FC8B00</color><!--主题颜色-->
+    <color name="homemenu_title">#000000</color><!--首页菜单标题文本颜色-->
+    <color name="app_bg">#EFEFEF</color><!--app背景色-->
+</resources>
