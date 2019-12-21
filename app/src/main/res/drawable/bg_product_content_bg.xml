@@ -11,13 +11,12 @@
                 android:right="2dp"
                 android:top="2dp" />
             <solid android:color="#30CCCCCC" />
-            <corners android:radius="8dp" />
+
         </shape>
     </item>
     <item>
         <shape>
             <solid android:color="#FFFFFF" />
-            <corners android:radius="4dp" />
         </shape>
     </item>
 </layer-list>

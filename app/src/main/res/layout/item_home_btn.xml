@@ -3,7 +3,8 @@
     android:id="@+id/homemenu_control"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clickable="true">
 
     <ImageView
         android:id="@+id/homemenu_control_img"

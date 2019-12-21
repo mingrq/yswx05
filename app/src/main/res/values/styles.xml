@@ -8,27 +8,37 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <!--轮播图样式-->
+    <declare-styleable name="SlideShow">
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="indicatorBgColor" format="color|integer" />
+        <attr name="indicatorSize" format="dimension" />
+        <attr name="indicatorMargin" format="dimension" />
+        <attr name="slideTime" format="integer" />
+        <attr name="indicatorSelecter" format="reference" />
+    </declare-styleable>
 
     <!--首页菜单按钮标题样式-->
     <style name="homemenu_control_tit_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/homemenu_title</item>
-        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginTop">6dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <!--首页菜单按钮图标样式-->
     <style name="homemenu_control_bg_style">
-        <item name="android:layout_width">60dp</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">46dp</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:padding">10dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:background">@drawable/shape_homemenu_control</item>
     </style>
 
+    <!--app UI中快捷联系方式-->
     <style name="app_quick_contact">
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">50dp</item>

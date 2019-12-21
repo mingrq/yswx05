@@ -6,7 +6,8 @@
     <color name="product_tab_text_select">#ffffff</color><!--主营产品选中菜单颜色-->
     <color name="product_tab_text">#DFDEDE</color><!--主营产品菜单颜色-->
     <color name="app_bg">#EFEFEF</color><!--app背景色-->
-    <color name="app_foreground">#B9B8B8</color><!--app前景色-->
+    <color name="app_bg1">#ffffff</color><!--app背景色1-->
+    <color name="app_foreground">#ffffff</color><!--app前景色-->
     <color name="app_foreground1">#818181</color><!--app前景色1-->
     <color name="app_text">#000000</color><!--app文本颜色-->
 </resources>

@@ -1,30 +1,33 @@
 package com.chiye.yswx05.ui.home;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.chiye.yswx05.R;
+import com.chiye.yswx05.common.ProductEntity;
+import com.chiye.yswx05.common.RecyclerViewProductAdapter;
+import com.chiye.yswx05.common.SlideShow;
 import com.ming.pullloadmorerecyclerview_lib.PullLoadMoreView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import ming.com.slideshow_lib.SlideShow;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private RecyclerViewBtnAdapter btnAdapter;
+    private PullLoadMoreView recyclerViewbtn;
+    private PullLoadMoreView recyclerViewproduct;
+    private RecyclerViewProductAdapter productAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,47 +47,52 @@ public class HomeFragment extends Fragment {
         });
 
         //菜单按钮
-        PullLoadMoreView recyclerViewbtn = root.findViewById(R.id.rcv_menu);
+        recyclerViewbtn = root.findViewById(R.id.rcv_menu);
         btnAdapter = new RecyclerViewBtnAdapter(getContext());
+        btnAdapter.setFragment(this);
         recyclerViewbtn
-                .setInitLayoutType(PullLoadMoreView.GRIDLAYOUT,PullLoadMoreView.VERTICAL)
-                .setInitSpacing(4, 10, 10, true, true)
-                .setInitAdapter(btnAdapter);
-        List<Integer> contents = new ArrayList<>();
-        for (int i = 0; i < 60; i++) {
-            contents.add(i);
-        }
-        recyclerViewbtn.setInitOnLoadMoreListener(new PullLoadMoreView.LoadMoreListener() {
-
-            @Override
-            public void onLoadMore() {
-
-                //pullLoadMoreView.setFooterType(PullLoadMoreView.NOMORE);
-            }
-        });
-        recyclerViewbtn.setInitOnPullLoadListener(new PullLoadMoreView.PullLoadListener() {
-            @Override
-            public void onRefresh() {
-
-            }
-        });
-
-        recyclerViewbtn.commit();
-
-
-        homeViewModel.getBtnList(getContext(),this);
-
-
-
+                .setInitLayoutType(PullLoadMoreView.GRIDLAYOUT, PullLoadMoreView.VERTICAL)
+                .setInitSpacing(4, 0,dp2px(14), true, true)
+                .setInitAdapter(btnAdapter)
+                .setInitRefreshAndMoreEnable(false, false)
+                .commit();
+        homeViewModel.getBtnList(getContext(), HomeFragment.this);
 
 
         //产品信息
-        PullLoadMoreView recyclerViewproduct = root.findViewById(R.id.rcv_product);
-
+        recyclerViewproduct = root.findViewById(R.id.rcv_product);
+        productAdapter = new RecyclerViewProductAdapter(getContext());
+        recyclerViewproduct
+                .setInitLayoutType(PullLoadMoreView.GRIDLAYOUT, PullLoadMoreView.VERTICAL)
+                .setInitSpacing(2, dp2px(10),dp2px(10), true, true)
+                .setInitAdapter(productAdapter)
+                .setInitRefreshAndMoreEnable(false, false)
+                .commit();
+        homeViewModel.getProductList(getContext(), HomeFragment.this);
         return root;
     }
 
-    public void setContent(RcyBtnEntity rcyBtnEntity){
+    /**
+     * dp转px
+     */
+    public int dp2px(float dpValues) {
+        dpValues = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValues, getResources().getDisplayMetrics());
+        return (int) (dpValues + 0.5f);
+    }
+
+    /**
+     * 设置分类按钮数据
+     * @param rcyBtnEntity
+     */
+    public void setContent(RcyBtnEntity rcyBtnEntity) {
         btnAdapter.setRcyBtnEntity(rcyBtnEntity);
+    }
+
+    /**
+     * 设置产品数据
+     * @param productEntity
+     */
+    public void setProductContent(ProductEntity productEntity) {
+        productAdapter.setRcyBtnEntity(productEntity);
     }
 }
