@@ -1,8 +1,17 @@
 package com.chiye.yswx05.ui.product;
 
+import android.content.Context;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.chiye.yswx05.common.ProductTypeEntity;
+import com.chiye.yswx05.common.ServerUrl;
+import com.chiye.yswx05.ui.home.RcyBtnEntity;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 public class ProductViewModel extends ViewModel {
 
@@ -15,5 +24,30 @@ public class ProductViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    /**
+     * 获取主营产品菜单列表
+     * @param context
+     */
+    public void getTypeList(Context context, final ProductFragment fragment){
+        OkHttpUtils
+                .get()
+                .url(ServerUrl.getProductMenu(context))
+                .build()
+                .execute(new StringCallback() {
+
+                    @Override
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Gson gson = new Gson();
+                        ProductTypeEntity productTypeEntity= gson.fromJson(response,ProductTypeEntity.class);
+                        fragment.setProductTypeContent(productTypeEntity);
+                    }
+                });
     }
 }

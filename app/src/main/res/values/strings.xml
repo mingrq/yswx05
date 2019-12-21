@@ -1,6 +1,21 @@
 <resources>
-    <string name="app_name">yswx05</string>
+    <string name="serverip">https://xcx.chiyekeji.com/dongxinge</string><!--服务器ip-->
+    <string name="app_name">驰业</string><!--APP名称-->
+    <string name="comanyname">河北驰业</string><!--公司名称-->
+    <string name="fourphone">400-0317-986</string><!--400电话 有多个时使用(,)隔开 ps：400-0317-986,400-0317-986-->
+    <string name="telephone">0317-4515648</string><!--电话 有多个时使用(,)隔开 ps：0317-4515648,0317-4515648-->
+    <string name="fax">0317-4515648</string><!--传真 有多个时使用(,)隔开 ps：0317-4515648,0317-4515648-->
+    <string name="website">http://www.chiye.com</string><!--网站 有多个时使用(,)隔开 ps：http://www.chiye.com,http://www.chiye.com-->
+    <string name="location">河北省泊头市龙华街388号</string><!--地址-->
+    <string name="email">chiyekeji@sina.com</string><!--e-mail 有多个时使用(,)隔开 ps：chiyekeji@sina.com,chiyekeji@sina.com-->
+    <string name="qq">1099655068</string><!--QQ 有多个时使用(,)隔开 ps：1099655068,1099655068-->
+
+
+
+
+
     <string name="title_home">Home</string>
     <string name="title_product">Product</string>
     <string name="title_notifications">Notifications</string>
+
 </resources>

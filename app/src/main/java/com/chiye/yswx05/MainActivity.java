@@ -10,8 +10,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Properties;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
-
-        try {
-            setTitle(new String(BuildConfig.comanyName.getBytes(),"GBK"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
+        setTitle(getResources().getString(R.string.comanyname));//设置标题
 
     }
-
 }

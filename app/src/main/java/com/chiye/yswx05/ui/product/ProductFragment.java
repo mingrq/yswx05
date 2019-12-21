@@ -11,25 +11,35 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.ViewPager;
 
 import com.chiye.yswx05.R;
+import com.chiye.yswx05.common.ProductTypeEntity;
+import com.google.android.material.tabs.TabLayout;
 
 public class ProductFragment extends Fragment {
     private ProductViewModel productViewModel;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         productViewModel =
                 ViewModelProviders.of(this).get(ProductViewModel.class);
         View root = inflater.inflate(R.layout.fragment_product, container, false);
-        final TextView textView = root.findViewById(R.id.text_product);
-        productViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        tabLayout = root.findViewById(R.id.tl_tabs);
+        //viewPager = root.findViewById(R.id.vp_content);
+        productViewModel.getTypeList(getContext(),this);
         return root;
     }
 
+    /**
+     * 设置产品类型列表
+     * @param entity
+     */
+    public void setProductTypeContent(ProductTypeEntity entity) {
+        for (int i=0;i<entity.getProducts().size();i++){
+            tabLayout.addTab(tabLayout.newTab().setText(entity.getProducts().get(i).getTypeName()));
+        }
+    }
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,9 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.chiye.yswx05.R;
 
+import java.util.List;
+import java.util.Map;
+
 public class ContactusFragment extends Fragment {
     private ContactusViewModel contactusViewModel;
 
@@ -24,11 +29,13 @@ public class ContactusFragment extends Fragment {
         contactusViewModel =
                 ViewModelProviders.of(this).get(ContactusViewModel.class);
         View root = inflater.inflate(R.layout.fragment_contactus, container, false);
-        final TextView textView = root.findViewById(R.id.text_constraint);
-        contactusViewModel.getText().observe(this, new Observer<String>() {
+        final ListView listView = root.findViewById(R.id.lv_contactus);
+        final ContactusAdapter adapter = new ContactusAdapter(getContext());
+        listView.setAdapter(adapter);
+        contactusViewModel.getContactusEntity(getContext()).observe(this, new Observer<List<Map<String,String>>>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onChanged(List<Map<String,String>> list) {
+                adapter.setList(list);
             }
         });
         return root;

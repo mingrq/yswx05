@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp">
+
+    <View style="@style/item_contactus_ico_style" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_contactus_tit"
+            style="@style/item_contactus_text_style"
+            android:text="电话:" />
+
+        <TextView
+            android:id="@+id/tv_contactus_content"
+            style="@style/item_contactus_text_style"
+            android:text="sdfgdfssdfsdfgsfdg" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

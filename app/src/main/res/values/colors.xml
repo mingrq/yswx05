@@ -3,5 +3,10 @@
     <color name="defultcolor">#707070</color><!--默认颜色-->
     <color name="colorPrimary">#FC8B00</color><!--主题颜色-->
     <color name="homemenu_title">#000000</color><!--首页菜单标题文本颜色-->
+    <color name="product_tab_text_select">#ffffff</color><!--主营产品选中菜单颜色-->
+    <color name="product_tab_text">#DFDEDE</color><!--主营产品菜单颜色-->
     <color name="app_bg">#EFEFEF</color><!--app背景色-->
+    <color name="app_foreground">#B9B8B8</color><!--app前景色-->
+    <color name="app_foreground1">#818181</color><!--app前景色1-->
+    <color name="app_text">#000000</color><!--app文本颜色-->
 </resources>

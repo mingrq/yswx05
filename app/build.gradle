@@ -10,33 +10,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "ServerIp", "${ServerIp}")
-            buildConfigField("String", "fourphone", "${fourphone}")
-            buildConfigField("String", "telephone", "${telephone}")
-            buildConfigField("String", "fax", "${fax}")
-            buildConfigField("String", "website", "${website}")
-            buildConfigField("String", "location", "${location}")
-            buildConfigField("String", "email", "${email}")
-            buildConfigField("String", "qq", "${qq}")
-            buildConfigField("String", "comanyName", "${comanyName}")
+
         }
         debug {
-            buildConfigField("String", "ServerIp", "${ServerIp}")
-            buildConfigField("String", "fourphone", "${fourphone}")
-            buildConfigField("String", "telephone", "${telephone}")
-            buildConfigField("String", "fax", "${fax}")
-            buildConfigField("String", "website", "${website}")
-            buildConfigField("String", "location", "${location}")
-            buildConfigField("String", "email", "${email}")
-            buildConfigField("String", "qq", "${qq}")
-            buildConfigField("String", "comanyName", "${comanyName}")
+
         }
     }
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -48,6 +35,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     testImplementation 'junit:junit:4.12'
     implementation 'com.github.mingrq:SlideShow:1.0.0'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation 'com.github.mingrq:PullLoadMoreRecyclerView:1.0.0'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
 }
