@@ -16,15 +16,15 @@ import com.zhy.http.okhttp.callback.StringCallback;
 public class ProductViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
+    ServerUrl serverUrl;
 
     public ProductViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is product fragment");
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+
 
     /**
      * 获取主营产品菜单列表
@@ -34,7 +34,7 @@ public class ProductViewModel extends ViewModel {
     public void getTypeList(final Context context, final ProductFragment fragment) {
         OkHttpUtils
                 .get()
-                .url(ServerUrl.getProductMenu(context))
+                .url(serverUrl.getProductMenu(context))
                 .build()
                 .execute(new StringCallback() {
 
@@ -76,8 +76,9 @@ public class ProductViewModel extends ViewModel {
                     @Override
                     public void onResponse(String response, int id) {
                         Gson gson = new Gson();
-                        ProductEntity productEntity= gson.fromJson(response,ProductEntity.class);
-                        fragment.setProductContent(productEntity);
+                        ProductEntity productEntity = gson.fromJson(response, ProductEntity.class);
+                        if (fragment != null)
+                            fragment.setProductContent(productEntity);
                     }
                 });
 

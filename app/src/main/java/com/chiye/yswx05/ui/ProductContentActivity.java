@@ -13,12 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.chiye.yswx05.ProductContentEntity;
+import com.chiye.yswx05.ProductContentModel;
 import com.chiye.yswx05.R;
-import com.chiye.yswx05.common.ProductEntity;
-import com.chiye.yswx05.common.ServerUrl;
-import com.google.gson.Gson;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 public class ProductContentActivity extends AppCompatActivity {
 
@@ -37,31 +33,13 @@ public class ProductContentActivity extends AppCompatActivity {
         setTitle(getResources().getString(R.string.comanyname));//设置标题
         Intent intent = getIntent();
         int cid = intent.getIntExtra("cid",0);
-        getContent(cid);
+        ProductContentModel model = new ProductContentModel(this);
+        model.getContent(cid);
     }
 
-    public void getContent(int cid) {
-        OkHttpUtils
-                .get()
-                .url(ServerUrl.getProductContent(this, cid))
-                .build()
-                .execute(new StringCallback() {
 
-                    @Override
-                    public void onError(okhttp3.Call call, Exception e, int id) {
 
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Gson gson = new Gson();
-                        ProductContentEntity entity = gson.fromJson(response, ProductContentEntity.class);
-                        setContent(entity);
-                    }
-                });
-    }
-
-    private void setContent(ProductContentEntity entity) {
+    public void setContent(ProductContentEntity entity) {
         tvProductContentTit.setText(entity.getProductDetail().getName());
         Glide.with(this).load(entity.getProductDetail().getLitpic()).into(ivProductContentTit);
         tvProductContent.loadData(entity.getProductDetail().getDetail(), "text/html", "UTF-8");

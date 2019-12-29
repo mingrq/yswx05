@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
         setTitle(getResources().getString(R.string.comanyname));//设置标题
-
     }
 
     public void jump(final int position, int tag){
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                     EventBus.getDefault().post(eventB);
                 }
             },800);
-
         }
     }
 }
